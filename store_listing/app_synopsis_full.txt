@@ -1,0 +1,40 @@
+Schedular brings machine maintenance planning and day-to-day execution into one local-first app. Define assets and recurring maintenance, prepare qualified labor and parts, assign upcoming work, and retain the outcome for reporting.
+
+PLAN ASSET MAINTENANCE
+- Create machines, sub-assemblies, and recurring maintenance tasks.
+- Record intervals, required parts, OEM and vendor part numbers, skills, and license requirements.
+- Review maintenance due and forecast workload from today through longer planning horizons.
+
+MATCH THE RIGHT PEOPLE
+- Maintain employee skills and licenses.
+- Track contractor companies, contacts, capabilities, and qualifications.
+- Use qualification-aware assignment options when preparing near-term work.
+
+EXECUTE AND REPORT
+- Manage the next five days of work from the Work Orders view.
+- Track assignments, status, notes, and task outcomes.
+- Review completed, partial, bypassed, and pending work in Reports.
+- Create operational PDF outputs for supported views.
+
+PREPARE PARTS
+- Consolidate required parts by vendor.
+- See where each part is used and open saved vendor links.
+- Export vendor and forecast CSV files for purchasing and planning.
+
+CONTROL YOUR DATA
+- Keep operational records in a local SQLite database without requiring a hosted maintenance account.
+- Export and import JSON database backups.
+- Use CSV templates and uploads for bulk machine, employee, and contractor data.
+- Inspect database location, record counts, and schema health from the built-in Help diagnostics.
+- Follow guided recovery actions when local data cannot be loaded.
+
+MAKE IT YOUR WORKSPACE
+- Choose system, light, or dark appearance.
+- Reorder tabs around your workflow.
+- Configure required data-entry fields.
+- Use responsive navigation suited to phone, tablet, and desktop layouts.
+
+Schedular is designed for maintenance managers, planners, supervisors, technicians, reliability teams, and procurement support that need a practical connection between asset definitions, labor qualifications, parts readiness, work execution, and reporting.
+
+Exported backups and reports are created only when you request them. Protect the device and exported files according to your organization's data-handling requirements.
+
