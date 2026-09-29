@@ -6,10 +6,10 @@ enum InitialDatabaseSetupAction {
   buildCompleteDb,
   buildMachineDb,
   buildEmployeeDb,
-  buildVenderDb,
+  buildContractorDb,
   uploadMachineCsv,
   uploadEmployeeCsv,
-  uploadVenderCsv,
+  uploadContractorCsv,
   addMachine,
 }
 

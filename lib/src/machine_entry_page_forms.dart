@@ -1270,7 +1270,7 @@ extension _MachineEntryPageFormsExtension on _MachineEntryPageState {
                       controller: partDraft.vendorPnController,
                       enabled: enabled,
                       decoration: const InputDecoration(
-                        labelText: 'Vender Part Number',
+                        labelText: 'Vendor Part Number',
                         border: OutlineInputBorder(),
                       ),
                       onChanged: (_) => onChanged(),
@@ -1280,7 +1280,7 @@ extension _MachineEntryPageFormsExtension on _MachineEntryPageState {
                       controller: partDraft.vendorNameController,
                       enabled: enabled,
                       decoration: const InputDecoration(
-                        labelText: 'Vender Name',
+                        labelText: 'Vendor Name',
                         border: OutlineInputBorder(),
                       ),
                       onChanged: (_) => onChanged(),
@@ -1290,7 +1290,7 @@ extension _MachineEntryPageFormsExtension on _MachineEntryPageState {
                       controller: partDraft.vendorUrlController,
                       enabled: enabled,
                       decoration: const InputDecoration(
-                        labelText: 'Vender URL',
+                        labelText: 'Vendor URL',
                         border: OutlineInputBorder(),
                       ),
                       onChanged: (_) => onChanged(),
@@ -1693,7 +1693,7 @@ extension _MachineEntryPageFormsExtension on _MachineEntryPageState {
                       initialValue: part.vendorPn,
                       enabled: enabled,
                       decoration: const InputDecoration(
-                        labelText: 'Vender Part Number',
+                        labelText: 'Vendor Part Number',
                         border: OutlineInputBorder(),
                       ),
                       onChanged: (value) {
@@ -1708,7 +1708,7 @@ extension _MachineEntryPageFormsExtension on _MachineEntryPageState {
                       initialValue: part.vendorName,
                       enabled: enabled,
                       decoration: const InputDecoration(
-                        labelText: 'Vender Name',
+                        labelText: 'Vendor Name',
                         border: OutlineInputBorder(),
                       ),
                       onChanged: (value) {
@@ -1723,7 +1723,7 @@ extension _MachineEntryPageFormsExtension on _MachineEntryPageState {
                       initialValue: part.vendorUrl,
                       enabled: enabled,
                       decoration: const InputDecoration(
-                        labelText: 'Vender URL',
+                        labelText: 'Vendor URL',
                         border: OutlineInputBorder(),
                       ),
                       onChanged: (value) {

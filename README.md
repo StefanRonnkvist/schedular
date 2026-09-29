@@ -49,6 +49,8 @@ Tab order is persisted per device and can be rearranged from **Settings > Custom
 
 ## Architecture
 
+See [`lib/ARCHITECTURE.md`](lib/ARCHITECTURE.md) for a full file-by-file map of the three layers (entry point, domain, data, UI) and a list of known structural debt.
+
 - `lib/main.dart` — app entry point, FFI database bootstrap, shared catalog constants, and the `part` declarations that assemble the app.
 - `lib/splash_screen.dart` — animated splash shown before the main shell.
 - `lib/src/models.dart` — domain models for machines, sub-assemblies, tasks, people, vendors, and work orders.
@@ -61,6 +63,11 @@ Two conventions are worth knowing before editing:
 
 - **The app is one Dart library.** `main.dart` declares all 23 `part` files, so they share a single import set and scope. A private name such as `_AppTab` (declared in `app_shell.dart`) is directly visible in `machine_entry_page.dart`. The upside is a small number of top-level imports; the cost is that no file can be analyzed or edited in isolation.
 - **Most feature files are extensions on one state class.** For example `machine_entry_page_work_orders.dart` declares `extension ... on _MachineEntryPageState`, which is how per-tab logic is partitioned without splitting the state object.
+
+Two naming distinctions that are easy to confuse:
+
+- **Contractors vs. Vendors.** `machine_database_contractors.dart` stores contractor *companies* and their contacts. `machine_entry_page_vendors.dart` renders *parts suppliers* — the `vendorPn` / `vendorName` / `vendorUrl` fields on `RequiredPart`. These are unrelated concepts that shared a similar name.
+- **Outcomes vs. statuses.** Work Orders records an *outcome* (completed, bypassed, deferred, needs follow-up, cancelled); Reports groups by the *status* stored on the work order (pending, work complete, partial, bypass).
 
 `machine_entry_page.dart` is a misnomer in name only — it holds the shared shell state and helpers, not just a single page.
 

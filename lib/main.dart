@@ -26,7 +26,7 @@ part 'src/drafts.dart';
 
 part 'src/machine_database.dart';
 part 'src/machine_database_employees.dart';
-part 'src/machine_database_venders.dart';
+part 'src/machine_database_contractors.dart';
 part 'src/machine_database_catalogs.dart';
 part 'src/machine_database_machines.dart';
 part 'src/machine_database_helpers.dart';

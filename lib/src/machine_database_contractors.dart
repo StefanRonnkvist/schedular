@@ -1,8 +1,8 @@
-
 part of 'package:schedular/main.dart';
 
-extension _MachineDatabaseVendersExtension on MachineDatabase {
-  Future<List<ContractorCompany>> _vendersGetContractorCompaniesImpl() async {
+extension _MachineDatabaseContractorsExtension on MachineDatabase {
+  Future<List<ContractorCompany>>
+  _contractorsGetContractorCompaniesImpl() async {
     final db = await database;
     await _ensureContractorTablesReady(db);
     final rows = await db.query(
@@ -22,7 +22,7 @@ extension _MachineDatabaseVendersExtension on MachineDatabase {
         .toList(growable: false);
   }
 
-  Future<ContractorCompany> _vendersUpsertContractorCompanyImpl(
+  Future<ContractorCompany> _contractorsUpsertContractorCompanyImpl(
     ContractorCompany company,
   ) async {
     final db = await database;
@@ -48,7 +48,7 @@ extension _MachineDatabaseVendersExtension on MachineDatabase {
     });
   }
 
-  Future<int> _vendersDeleteContractorCompanyImpl(int companyId) async {
+  Future<int> _contractorsDeleteContractorCompanyImpl(int companyId) async {
     final db = await database;
     await _ensureContractorTablesReady(db);
     return db.transaction((txn) async {
@@ -65,9 +65,8 @@ extension _MachineDatabaseVendersExtension on MachineDatabase {
     });
   }
 
-  Future<List<ContractorEmployeeContact>> _vendersGetContractorEmployeesImpl(
-    int companyId,
-  ) async {
+  Future<List<ContractorEmployeeContact>>
+  _contractorsGetContractorEmployeesImpl(int companyId) async {
     final db = await database;
     await _ensureContractorTablesReady(db);
     final rows = await db.query(
@@ -89,7 +88,7 @@ extension _MachineDatabaseVendersExtension on MachineDatabase {
         .toList(growable: false);
   }
 
-  Future<ContractorEmployeeContact> _vendersUpsertContractorEmployeeImpl(
+  Future<ContractorEmployeeContact> _contractorsUpsertContractorEmployeeImpl(
     ContractorEmployeeContact contact,
   ) async {
     final db = await database;
@@ -115,17 +114,13 @@ extension _MachineDatabaseVendersExtension on MachineDatabase {
     });
   }
 
-  Future<int> _vendersDeleteContractorEmployeeImpl(int id) async {
+  Future<int> _contractorsDeleteContractorEmployeeImpl(int id) async {
     final db = await database;
     await _ensureContractorTablesReady(db);
-    return db.delete(
-      contractorEmployeeTable,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    return db.delete(contractorEmployeeTable, where: 'id = ?', whereArgs: [id]);
   }
 
-  Future<void> _vendersDeleteAllContractorsImpl() async {
+  Future<void> _contractorsDeleteAllContractorsImpl() async {
     final db = await database;
     await _ensureContractorTablesReady(db);
     await db.transaction((txn) async {

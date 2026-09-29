@@ -1,4 +1,4 @@
-// ignore_for_file: invalid_use_of_protected_member
+﻿// ignore_for_file: invalid_use_of_protected_member
 
 part of 'package:schedular/main.dart';
 
@@ -112,33 +112,6 @@ extension _MachineEntryPageImportExportExtension on _MachineEntryPageState {
     } catch (error) {
       if (!mounted) return;
       _showErrorSnackBar('Failed to create contractor CSV template.', error);
-    }
-  }
-
-  Future<void> exportVendorCsvTemplate() async {
-    try {
-      // Vendors currently use the same schema/template as contractors.
-      final csvContent = await MachineDatabase.instance
-          .exportContractorTemplateToCsv();
-      if (csvContent == null || csvContent.isEmpty) {
-        if (!mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Failed to create vendor CSV template.'),
-          ),
-        );
-        return;
-      }
-
-      await _saveCsvFile(
-        dialogTitle: 'Save Vendor CSV Template',
-        fileName: 'vendor_template.csv',
-        successMessage: 'Vendor CSV template saved to',
-        csvContent: csvContent,
-      );
-    } catch (error) {
-      if (!mounted) return;
-      _showErrorSnackBar('Failed to create vendor CSV template.', error);
     }
   }
 

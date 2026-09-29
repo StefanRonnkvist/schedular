@@ -844,37 +844,37 @@ class MachineDatabase {
   }
 
   Future<List<ContractorCompany>> getContractorCompanies() async {
-    return _vendersGetContractorCompaniesImpl();
+    return _contractorsGetContractorCompaniesImpl();
   }
 
   Future<ContractorCompany> upsertContractorCompany(
     ContractorCompany company,
   ) async {
-    return _vendersUpsertContractorCompanyImpl(company);
+    return _contractorsUpsertContractorCompanyImpl(company);
   }
 
   Future<int> deleteContractorCompany(int companyId) async {
-    return _vendersDeleteContractorCompanyImpl(companyId);
+    return _contractorsDeleteContractorCompanyImpl(companyId);
   }
 
   Future<List<ContractorEmployeeContact>> getContractorEmployees(
     int companyId,
   ) async {
-    return _vendersGetContractorEmployeesImpl(companyId);
+    return _contractorsGetContractorEmployeesImpl(companyId);
   }
 
   Future<ContractorEmployeeContact> upsertContractorEmployee(
     ContractorEmployeeContact contact,
   ) async {
-    return _vendersUpsertContractorEmployeeImpl(contact);
+    return _contractorsUpsertContractorEmployeeImpl(contact);
   }
 
   Future<int> deleteContractorEmployee(int id) async {
-    return _vendersDeleteContractorEmployeeImpl(id);
+    return _contractorsDeleteContractorEmployeeImpl(id);
   }
 
   Future<void> deleteAllContractors() async {
-    await _vendersDeleteAllContractorsImpl();
+    await _contractorsDeleteAllContractorsImpl();
   }
 
   Future<List<String>> getComponentTypes() async {

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_final_fields
+﻿// ignore_for_file: prefer_final_fields
 
 part of 'package:schedular/main.dart';
 
@@ -82,7 +82,7 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
     if (part.estimatedLeadTime.trim().isNotEmpty) {
       details.add(part.estimatedLeadTime.trim());
     }
-    return details.isEmpty ? 'Part details unavailable' : details.join(' • ');
+    return details.isEmpty ? 'Part details unavailable' : details.join(' â€¢ ');
   }
 
   List<String> get _availableSuperCategories => _superCategoryOptions.isEmpty
@@ -1541,7 +1541,7 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
       case InitialDatabaseSetupAction.buildEmployeeDb:
         await _generateRandomEmployeesData();
         break;
-      case InitialDatabaseSetupAction.buildVenderDb:
+      case InitialDatabaseSetupAction.buildContractorDb:
         await _generateRandomContractorsData();
         break;
       case InitialDatabaseSetupAction.uploadMachineCsv:
@@ -1550,7 +1550,7 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
       case InitialDatabaseSetupAction.uploadEmployeeCsv:
         await importEmployeesFromCsv();
         break;
-      case InitialDatabaseSetupAction.uploadVenderCsv:
+      case InitialDatabaseSetupAction.uploadContractorCsv:
         await importContractorsFromCsv();
         break;
       case InitialDatabaseSetupAction.addMachine:
@@ -1717,14 +1717,9 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
           InitialDatabaseSetupAction.uploadEmployeeCsv,
         );
         break;
-      case 'setup_upload_vender_csv':
-        await _handleInitialDatabaseSetupAction(
-          InitialDatabaseSetupAction.uploadVenderCsv,
-        );
-        break;
       case 'setup_upload_contractor_csv':
         await _handleInitialDatabaseSetupAction(
-          InitialDatabaseSetupAction.uploadVenderCsv,
+          InitialDatabaseSetupAction.uploadContractorCsv,
         );
         break;
       case 'setup_export_machine_template_csv':
@@ -1732,9 +1727,6 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
         break;
       case 'setup_export_employee_template_csv':
         await exportEmployeeCsvTemplate();
-        break;
-      case 'setup_export_vendor_template_csv':
-        await exportVendorCsvTemplate();
         break;
       case 'setup_export_contractor_template_csv':
         await exportContractorCsvTemplate();
@@ -1990,13 +1982,6 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
                   ),
                   OutlinedButton.icon(
                     onPressed: () => _handleDatabaseActionSelection(
-                      'setup_upload_vender_csv',
-                    ),
-                    icon: const Icon(Icons.upload_outlined),
-                    label: const Text('Upload Vender CSV'),
-                  ),
-                  OutlinedButton.icon(
-                    onPressed: () => _handleDatabaseActionSelection(
                       'setup_upload_contractor_csv',
                     ),
                     icon: const Icon(Icons.upload_outlined),
@@ -2015,13 +2000,6 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
                     ),
                     icon: const Icon(Icons.download_outlined),
                     label: const Text('Export Employee CSV Template'),
-                  ),
-                  OutlinedButton.icon(
-                    onPressed: () => _handleDatabaseActionSelection(
-                      'setup_export_vendor_template_csv',
-                    ),
-                    icon: const Icon(Icons.download_outlined),
-                    label: const Text('Export Vendor CSV Template'),
                   ),
                   OutlinedButton.icon(
                     onPressed: () => _handleDatabaseActionSelection(
