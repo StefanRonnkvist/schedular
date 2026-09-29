@@ -82,6 +82,29 @@ state. Each file below is an `extension ... on _MachineEntryPageState`.
   That is why `MachineDatabase` needs public forwarders — see below.
 - No file can be analyzed, tested, or refactored in isolation.
 
+### Testing seams
+
+Because everything in the app is a private member of one library, testable
+functions are exposed through `@visibleForTesting` wrappers on `MachineDatabase`,
+following the precedent of `setDatabasePathOverrideForTesting`:
+
+| Seam | Wraps |
+| --- | --- |
+| `generateCsvForTesting` | `helpersGenerateCsv` |
+| `parseCsvContentForTesting` | `helpersParseCsvContent` |
+| `machineToBackupMapForTesting` / `machineFromBackupMapForTesting` | `_machineToBackupMap` / `_machineFromBackupMap` |
+| `employeeToBackupMapForTesting` / `employeeFromBackupMapForTesting` | `_employeeToBackupMap` / `_employeeFromBackupMap` |
+
+Each is a pure one-line delegation. If you refactor item 1 below and delete the
+forwarders, keep these — they are the supported test entry points.
+
+### Running tests
+
+```sh
+flutter analyze
+flutter test
+```
+
 ## Known structural debt
 
 Ordered by value, highest first.
@@ -99,6 +122,8 @@ Ordered by value, highest first.
 3. **Flat `lib/src/`.** The three layers above are conceptual only. A real split needs
    `import`/`export` and careful handling of the shared private scope.
 
-4. **No tests.** `test/` is empty, so every refactor is verified only by the analyzer and
-   by hand. Adding round-trip tests for backup serialization and CSV parse/serialize
-   would make the rest of this list safe to execute.
+4. **No database-level tests.** The pure functions are covered — see `test/`
+   (`csv_helpers_test.dart`, `backup_map_test.dart`), 24 tests covering CSV
+   round trips and the backup map transforms. What is still untested is anything
+   that touches a real SQLite connection: `getMachines`, `importDatabaseJson`,
+   schema migrations. Those need a temp-database fixture.

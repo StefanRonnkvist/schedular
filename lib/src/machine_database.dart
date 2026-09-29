@@ -1361,6 +1361,10 @@ class MachineDatabase {
     final map = row.cast<Object?, Object?>();
     return Employee(
       name: _asString(map['name']),
+      email: _asString(map['email']),
+      cellPhone: _asString(map['cellPhone']),
+      phoneNumber: _asString(map['phoneNumber']),
+      phoneExtension: _asString(map['phoneExtension']),
       skills: _asStringList(map['skills']),
       licenses: _asStringList(map['licenses']),
     );
@@ -1872,4 +1876,40 @@ class MachineDatabase {
   List<List<String>> _parseCsvContent(String csvContent) {
     return helpersParseCsvContent(csvContent);
   }
+
+  /// Test seam for the pure CSV helpers.
+  ///
+  /// [generateCsv] and [parseCsvContent] are pure functions, but they are only
+  /// reachable through a private member of this library. Exposing them keeps
+  /// them unit-testable without opening the whole singleton to tests.
+  @visibleForTesting
+  String generateCsvForTesting(List<List<String>> rows) {
+    return helpersGenerateCsv(rows);
+  }
+
+  @visibleForTesting
+  List<List<String>> parseCsvContentForTesting(String csvContent) {
+    return helpersParseCsvContent(csvContent);
+  }
+
+  /// Test seam for the pure backup map transforms.
+  ///
+  /// The JSON backup round trip normally runs against a live database. These
+  /// expose the individual `toMap`/`fromMap` conversions so they can be
+  /// verified without one.
+  @visibleForTesting
+  Map<String, Object?> machineToBackupMapForTesting(Machine machine) =>
+      _machineToBackupMap(machine);
+
+  @visibleForTesting
+  Machine machineFromBackupMapForTesting(Object? row) =>
+      _machineFromBackupMap(row);
+
+  @visibleForTesting
+  Map<String, Object?> employeeToBackupMapForTesting(Employee employee) =>
+      _employeeToBackupMap(employee);
+
+  @visibleForTesting
+  Employee employeeFromBackupMapForTesting(Object? row) =>
+      _employeeFromBackupMap(row);
 }

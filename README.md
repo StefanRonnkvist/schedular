@@ -97,13 +97,14 @@ flutter pub get
 flutter run
 ```
 
-Run static analysis:
+Run static analysis and tests:
 
 ```sh
 flutter analyze
+flutter test
 ```
 
-The repository currently contains no automated tests, so `flutter test` has nothing to execute and static analysis is the only automated check in place.
+The test suite covers the pure functions: CSV generate/parse round trips and the JSON backup map transforms (`test/csv_helpers_test.dart`, `test/backup_map_test.dart`). Anything touching a real SQLite connection is not yet covered — see `lib/ARCHITECTURE.md`.
 
 Release helper scripts live in `scripts/` and `tool/`:
 
