@@ -2239,7 +2239,7 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Work Orders: assign the next five days of work, check qualifications, track status, and capture outcomes.',
+                  'Work Orders: assign the next five days of work, check qualifications, track status, and capture outcomes such as completed, bypassed, deferred, or needs follow-up.',
                 ),
               ),
               SizedBox(height: 6),
@@ -2253,7 +2253,7 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Reports: summarize planning and output work-order reporting PDFs.',
+                  'Reports: summarize planning and output work-order reporting PDFs, grouped by stored status such as pending, work complete, partial, and bypass.',
                 ),
               ),
               SizedBox(height: 6),

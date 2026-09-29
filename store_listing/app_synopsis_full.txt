@@ -12,8 +12,8 @@ MATCH THE RIGHT PEOPLE
 
 EXECUTE AND REPORT
 - Manage the next five days of work from the Work Orders view.
-- Track assignments, status, notes, and task outcomes.
-- Review completed, partial, bypassed, and pending work in Reports.
+- Track assignments, notes, and task outcomes such as completed, bypassed, deferred, and needs follow-up.
+- Review pending, work complete, partial, and bypassed work in Reports.
 - Create operational PDF outputs for supported views.
 
 PREPARE PARTS

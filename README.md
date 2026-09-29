@@ -11,7 +11,7 @@ Data lives on the device. There is no hosted maintenance service, no account req
 - Manage internal employees and external contractor companies, contacts, capabilities, and qualifications.
 - Review maintenance due dates and forecast workload and parts demand by time bucket.
 - Assign the next five days of work with qualification-aware matching.
-- Track work-order status, notes, assignments, and outcomes (completed, partial, bypassed, pending).
+- Record work-order outcomes (completed, bypassed, deferred, needs follow-up, cancelled) and report on stored statuses such as pending, work complete, partial, and bypass.
 - Group required parts by vendor, open saved vendor links, and export purchasing CSV files.
 - Generate operational PDFs and work-order status reports.
 - Customize theme (system/light/dark), tab order, and which data-entry fields are required.
@@ -49,20 +49,28 @@ Tab order is persisted per device and can be rearranged from **Settings > Custom
 
 ## Architecture
 
-- `lib/main.dart` — app entry point, database bootstrap, and the `part` declarations that assemble the page.
+- `lib/main.dart` — app entry point, FFI database bootstrap, shared catalog constants, and the `part` declarations that assemble the app.
+- `lib/splash_screen.dart` — animated splash shown before the main shell.
 - `lib/src/models.dart` — domain models for machines, sub-assemblies, tasks, people, vendors, and work orders.
 - `lib/src/machine_database*.dart` — SQLite schema, migrations, queries, health checks, and backup/CSV import and export.
 - `lib/src/machine_entry_page*.dart` — the tabbed shell and per-tab UI, split by concern (machines, employees, contractors, vendors, schedule, work orders, forecast, reports, import/export, forms, actions).
 - `lib/contact/` — the Information tab contact form and submissions view.
-- `lib/db_registry_helpers.dart` — database registry support helpers.
+- `lib/db_registry_helpers.dart` — the canonical `CREATE TABLE` statements and schema version.
+
+Two conventions are worth knowing before editing:
+
+- **The app is one Dart library.** `main.dart` declares all 23 `part` files, so they share a single import set and scope. A private name such as `_AppTab` (declared in `app_shell.dart`) is directly visible in `machine_entry_page.dart`. The upside is a small number of top-level imports; the cost is that no file can be analyzed or edited in isolation.
+- **Most feature files are extensions on one state class.** For example `machine_entry_page_work_orders.dart` declares `extension ... on _MachineEntryPageState`, which is how per-tab logic is partitioned without splitting the state object.
+
+`machine_entry_page.dart` is a misnomer in name only — it holds the shared shell state and helpers, not just a single page.
 
 ## Data and Privacy
 
-Schedular stores operational data in a local SQLite database. It does not require a hosted maintenance service or account to manage that data. Backups are user-initiated JSON files; CSV and PDF files are created only when an export action is used. Export a JSON backup before bulk imports, major edits, or resetting the local database.
+Schedular stores operational data in a local SQLite database at schema version 30. It does not require a hosted maintenance service or account to manage that data. Backups are user-initiated JSON files; CSV and PDF files are created only when an export action is used. Export a JSON backup before bulk imports, major edits, or resetting the local database.
 
 The database is not encrypted at rest. Protect the device and any exported files according to your organization's data-handling requirements.
 
-If the app cannot locate or open the database at startup, it routes to the Help tab with setup and recovery guidance instead of failing silently.
+If the app cannot locate or open the database at startup, it routes to the Help tab with setup and recovery guidance instead of failing silently. Initial loads are bounded by an 8-second timeout that reconnects and retries once for 12 seconds before the app reports a failure.
 
 ## Platforms
 
@@ -82,12 +90,13 @@ flutter pub get
 flutter run
 ```
 
-Run static analysis and tests:
+Run static analysis:
 
 ```sh
 flutter analyze
-flutter test
 ```
+
+The repository currently contains no automated tests, so `flutter test` has nothing to execute and static analysis is the only automated check in place.
 
 Release helper scripts live in `scripts/` and `tool/`:
 
