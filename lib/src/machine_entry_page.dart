@@ -2143,6 +2143,10 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
                 Text(
                   '5. Review Reports, export operational files, and back up the database from Settings.',
                 ),
+                SizedBox(height: 4),
+                Text(
+                  '6. Use Information for support questions and Help whenever data looks empty or stale.',
+                ),
               ],
             ),
           ),
@@ -2263,6 +2267,13 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
+                  'Information: contact support and review submitted feedback entries.',
+                ),
+              ),
+              SizedBox(height: 6),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
                   'Help: diagnostics, recovery steps, and import/export walkthroughs.',
                 ),
               ),
@@ -2344,6 +2355,43 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
                     label: const Text('Backup + Reset Local DB'),
                   ),
                 ],
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 12),
+        Card(
+          child: ExpansionTile(
+            title: const Text('Where Your Data Lives'),
+            subtitle: const Text('Storage, privacy, and network use'),
+            childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+            children: const [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Maintenance records are stored in a local SQLite database on this device. No account and no hosted maintenance service are required.',
+                ),
+              ),
+              SizedBox(height: 6),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'The local database is not encrypted at rest. Protect the device and any exported files according to your organization\'s data-handling requirements.',
+                ),
+              ),
+              SizedBox(height: 6),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'JSON backups, CSV files, and PDFs are created only when you run an export action.',
+                ),
+              ),
+              SizedBox(height: 6),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'The only network request the app makes is when you choose to send a message from the Information tab.',
+                ),
               ),
             ],
           ),

@@ -1,4 +1,4 @@
-Schedular brings machine maintenance planning and day-to-day execution into one local-first app. Define assets and recurring maintenance, prepare qualified labor and parts, assign upcoming work, and retain the outcome for reporting.
+Schedular brings machine maintenance planning and day-to-day execution into one local-first app. Define assets and recurring maintenance, prepare qualified labor and parts, assign upcoming work, and retain the outcome for reporting. Your operational records stay on your device, with no account and no hosted maintenance service required.
 
 PLAN ASSET MAINTENANCE
 - Create machines, sub-assemblies, and recurring maintenance tasks.
@@ -33,8 +33,14 @@ MAKE IT YOUR WORKSPACE
 - Reorder tabs around your workflow.
 - Configure required data-entry fields.
 - Use responsive navigation suited to phone, tablet, and desktop layouts.
+- Send feedback and review your submissions from the built-in support screen.
+
+GET HELP WHEN YOU NEED IT
+- Follow a short quick-start path through planning, labor, scheduling, and reporting.
+- Check database location, record counts, and schema health from the built-in diagnostics.
+- Recover from an empty or unreadable local database with guided backup and reset steps.
 
 Schedular is designed for maintenance managers, planners, supervisors, technicians, reliability teams, and procurement support that need a practical connection between asset definitions, labor qualifications, parts readiness, work execution, and reporting.
 
-Exported backups and reports are created only when you request them. Protect the device and exported files according to your organization's data-handling requirements.
+Exported backups and reports are created only when you request them. The local database is not encrypted at rest, so protect the device and exported files according to your organization's data-handling requirements. The only network request the app makes is when you choose to send a support message.
 
