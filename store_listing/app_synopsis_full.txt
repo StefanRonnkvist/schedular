@@ -1,20 +1,20 @@
-Schedular brings machine maintenance planning and day-to-day execution into one local-first app. Define assets and recurring maintenance, prepare qualified labor and parts, assign upcoming work, and retain the outcome for reporting. Your operational records stay on your device, with no account and no hosted maintenance service required.
+Schedular connects machine maintenance planning and day-to-day execution in one local-first app. Define assets and recurring tasks, prepare qualified labor and parts, assign upcoming work, and record outcomes for reporting. Your operational records stay on your device; no account or hosted maintenance service is required.
 
 PLAN ASSET MAINTENANCE
 - Create machines, sub-assemblies, and recurring maintenance tasks.
 - Record intervals, required parts, OEM and vendor part numbers, skills, and license requirements.
-- Review maintenance due and forecast workload from today through longer planning horizons.
+- Review maintenance due dates and forecast workload and parts demand across future planning horizons.
 
 MATCH THE RIGHT PEOPLE
 - Maintain employee skills and licenses.
 - Track contractor companies, contacts, capabilities, and qualifications.
-- Use qualification-aware assignment options when preparing near-term work.
+- Use qualification-aware options when assigning near-term work.
 
 EXECUTE AND REPORT
 - Manage the next five days of work from the Work Orders view.
-- Track assignments, notes, and task outcomes such as completed, bypassed, deferred, and needs follow-up.
-- Review pending, work complete, partial, and bypassed work in Reports.
-- Create operational PDF outputs for supported views.
+- Track assignments and notes, and record task outcomes such as completed, bypassed, deferred, or needs follow-up.
+- Review work-order reports grouped by stored status, including pending, work complete, partial, and bypass.
+- Generate operational PDFs and work-order status reports.
 
 PREPARE PARTS
 - Consolidate required parts by vendor.
@@ -26,21 +26,21 @@ CONTROL YOUR DATA
 - Export and import JSON database backups.
 - Use CSV templates and uploads for bulk machine, employee, and contractor data.
 - Inspect database location, record counts, and schema health from the built-in Help diagnostics.
-- Follow guided recovery actions when local data cannot be loaded.
+- Follow setup and recovery guidance if the local database is empty or cannot be loaded.
 
 MAKE IT YOUR WORKSPACE
 - Choose system, light, or dark appearance.
 - Reorder tabs around your workflow.
 - Configure required data-entry fields.
 - Use responsive navigation suited to phone, tablet, and desktop layouts.
-- Send feedback and review your submissions from the built-in support screen.
+- Contact support and review submitted feedback from the Information tab.
 
 GET HELP WHEN YOU NEED IT
 - Follow a short quick-start path through planning, labor, scheduling, and reporting.
 - Check database location, record counts, and schema health from the built-in diagnostics.
-- Recover from an empty or unreadable local database with guided backup and reset steps.
+- Troubleshoot an empty or unreadable local database with guided reload, diagnostics, backup, and recovery steps.
 
 Schedular is designed for maintenance managers, planners, supervisors, technicians, reliability teams, and procurement support that need a practical connection between asset definitions, labor qualifications, parts readiness, work execution, and reporting.
 
-Exported backups and reports are created only when you request them. The local database is not encrypted at rest, so protect the device and exported files according to your organization's data-handling requirements. The only network request the app makes is when you choose to send a support message.
+JSON backups, CSV files, and PDFs are created only when you request an export. The local database is not encrypted at rest, so protect the device and exported files according to your organization's data-handling requirements. The only network request the app makes is when you choose to send a message from the Information tab.
 

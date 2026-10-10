@@ -2,7 +2,7 @@
 
 Schedular is a local-first maintenance operations app for planning, assigning, executing, and reporting machine maintenance. It connects assets, recurring tasks, qualified labor, required parts, vendors, and work-order outcomes in one responsive Flutter application.
 
-Data lives on the device. There is no hosted maintenance service, no account requirement, and no operational telemetry — the only network call in the app is the optional **Information** tab contact form.
+Operational data lives in a local SQLite database on the device. There is no hosted maintenance service, no account requirement, and no operational telemetry — the only network call is made when you choose to send a support message from the **Information** tab.
 
 ## Features
 
@@ -11,13 +11,13 @@ Data lives on the device. There is no hosted maintenance service, no account req
 - Manage internal employees and external contractor companies, contacts, capabilities, and qualifications.
 - Review maintenance due dates and forecast workload and parts demand by time bucket.
 - Assign the next five days of work with qualification-aware matching.
-- Record work-order outcomes (completed, bypassed, deferred, needs follow-up, cancelled) and report on stored statuses such as pending, work complete, partial, and bypass.
+- Assign near-term work with qualification-aware options; record outcomes (completed, bypassed, deferred, needs follow-up, cancelled) and report on stored statuses such as pending, work complete, partial, and bypass.
 - Group required parts by vendor, open saved vendor links, and export purchasing CSV files.
 - Generate operational PDFs and work-order status reports.
 - Customize theme (system/light/dark), tab order, and which data-entry fields are required.
 - Back up and restore the local database with JSON and exchange bulk data with CSV templates and uploads.
-- Diagnose database location, record counts, schema health, and recovery options in Help.
-- Submit feedback and review submissions from the **Information** tab.
+- Diagnose database location, record counts, schema health, and recovery options in Help, including guided reload and backup restoration steps.
+- Contact support and review submitted feedback from the **Information** tab; this is the app's only network request.
 
 ## Workflow
 
@@ -26,8 +26,8 @@ Data lives on the device. There is no hosted maintenance service, no account req
 3. Review due work in **Schedule** and longer-term demand in **Forecast**.
 4. Assign and complete work in **Work Orders**.
 5. Review outcomes in **Reports** and parts demand in **Vendors**.
-6. Manage exports, backups, restore, preferences, and database actions in **Settings**.
-7. Use **Information** for support contact and submitted feedback, and **Help** for guidance and diagnostics.
+6. Manage exports, backups, restore, preferences, and database actions in **Settings**. Restoring a JSON backup replaces the current app data.
+7. Use **Information** to contact support and review submitted feedback, and **Help** for setup guidance, diagnostics, and database recovery.
 
 ## Tabs
 
@@ -75,7 +75,7 @@ Two naming distinctions that are easy to confuse:
 
 Schedular stores operational data in a local SQLite database at schema version 30. It does not require a hosted maintenance service or account to manage that data. Backups are user-initiated JSON files; CSV and PDF files are created only when an export action is used. Export a JSON backup before bulk imports, major edits, or resetting the local database.
 
-The database is not encrypted at rest. Protect the device and any exported files according to your organization's data-handling requirements.
+The database is not encrypted at rest. Protect the device and any exported files according to your organization's data-handling requirements. Restoring a JSON backup replaces the current app data, so export and safeguard a backup before major edits, bulk imports, or resetting local data.
 
 If the app cannot locate or open the database at startup, it routes to the Help tab with setup and recovery guidance instead of failing silently. Initial loads are bounded by an 8-second timeout that reconnects and retries once for 12 seconds before the app reports a failure.
 

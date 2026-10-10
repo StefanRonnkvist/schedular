@@ -2099,7 +2099,7 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'Schedular keeps maintenance planning, qualified labor, parts, and work-order history together in a local database.',
+                  'Schedular connects asset maintenance, qualified labor, parts readiness, and work execution in one local-first workspace. Your operational records stay on this device; no account or hosted maintenance service is required.',
                 ),
                 SizedBox(height: 8),
                 Text(
@@ -2119,11 +2119,11 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
                 ),
                 SizedBox(height: 4),
                 Text(
-                  '5. Review Reports, export operational files, and back up the database from Settings.',
+                  '5. Review Reports and parts demand in Vendors; export PDFs or CSV files when needed.',
                 ),
                 SizedBox(height: 4),
                 Text(
-                  '6. Use Information for support questions and Help whenever data looks empty or stale.',
+                  '6. In Settings, configure your workspace and manage imports, exports, and backups. Use Information to send feedback; use Help for diagnostics and recovery.',
                 ),
               ],
             ),
@@ -2142,7 +2142,7 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Use the Settings tab actions to reload data from the local database.',
+                  'If a tab looks empty or out of date, reload saved data from Settings, then refresh the diagnostics below to check the database path, record counts, and schema health.',
                 ),
                 const SizedBox(height: 6),
                 const Text(
@@ -2150,11 +2150,11 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
                 ),
                 const SizedBox(height: 6),
                 const Text(
-                  'Use Settings > Database Actions to import/export backups and CSV templates.',
+                  'Use Settings > Database Actions for JSON backups and CSV templates. Restoring a JSON backup replaces the current app data.',
                 ),
                 const SizedBox(height: 6),
                 const Text(
-                  'Export a Database JSON backup before bulk imports, major edits, or resetting local data.',
+                  'Export a Database JSON backup before bulk imports, major edits, or resetting local data. Keep exported files somewhere safe; the database is not encrypted at rest.',
                 ),
                 const SizedBox(height: 6),
                 const Text(
@@ -2267,20 +2267,22 @@ class _MachineEntryPageState extends State<MachineEntryPage> {
             children: [
               const Align(
                 alignment: Alignment.centerLeft,
-                child: Text('1. Press Reload Saved Data in the Settings tab.'),
-              ),
-              const SizedBox(height: 6),
-              const Align(
-                alignment: Alignment.centerLeft,
                 child: Text(
-                  '2. Check Diagnostics below to confirm DB path and record counts.',
+                  '1. Press Reload Saved Data in Settings, then refresh the diagnostics below.',
                 ),
               ),
               const SizedBox(height: 6),
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '3. If counts are zero unexpectedly, import from the latest backup JSON.',
+                  '2. Refresh Diagnostics and check the database path, record counts, health status, and any missing tables.',
+                ),
+              ),
+              const SizedBox(height: 6),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '3. If records are unexpectedly missing, first confirm the database path. Then restore a known-good JSON backup from Settings; importing replaces current app data.',
                 ),
               ),
               const SizedBox(height: 12),
